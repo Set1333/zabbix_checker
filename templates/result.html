@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Server Information</h2>
+        <p><strong>Server Name:</strong> {{ server_name }}</p>
+        <p><strong>IP Address:</strong> {{ ip_address }}</p>
+
+        <h2>СЕРВЕР</h2>
+        <p>{{ template_name }}</p>
+
+<h2>Elements</h2>
+<ul>
+    {% for element in elements %}
+        <li>{{ element.name }}</li>
+    {% endfor %}
+</ul>
+
+<h2>Triggers</h2>
+<ul>
+    {% for trigger in triggers %}
+        <li>{{ trigger.description }}</li>
+    {% endfor %}
+</ul>
+            <p></p>
+        <a href="/">Проверить другой сервер</a>
+            <p>---------------</p>
+        <form action="/download" method="post">
+            <input type="hidden" name="server_name" value="{{ server_name }}">
+            <input type="hidden" name="ip_address" value="{{ ip_address }}">
+            <input type="hidden" name="template_name" value="{{ template_name }}">
+            {% for element in elements %}
+                <input type="hidden" name="elements[]" value="{{ element.name }}">
+            {% endfor %}
+            {% for trigger in triggers %}
+                <input type="hidden" name="triggers[]" value="{{ trigger.description }}">
+            {% endfor %}
+            <button type="submit">Download Info</button>
+        </form>
+    </div>
+</body>
+</html>
