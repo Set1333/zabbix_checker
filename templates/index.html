@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проверка сервера на мониторинге</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Zabbix Server Checker</h1>
+        <form action="/check" method="post">
+            <label for="ip_address">Введите имя сервера:</label>
+            <input type="text" id="ip_address" name="ip_address" required>
+            <button type="submit">Проверить</button>
+        </form>
+    </div>
+</body>
+</html>
