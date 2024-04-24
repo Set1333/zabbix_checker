@@ -5,7 +5,7 @@ from io import StringIO
 
 app = Flask(__name__)
 
-ZABBIX_URL = 'http://192.168.1.207/zabbix'
+ZABBIX_URL = 'http://localhost/zabbix'
 ZABBIX_USERNAME = 'Admin'
 ZABBIX_PASSWORD = 'Admin'
 
